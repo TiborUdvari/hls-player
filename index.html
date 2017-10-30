@@ -6,14 +6,22 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-        <!--<link rel="stylesheet" href="css/main.css"> -->
+        <style>
+html, body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#movie {
+  width: 100%;
+}
+        </style>
     </head>
-    <body>
-        <video id="movie" preload autoplay style="width: 100%; height: 100%;">
-        	
-    		</video>
+    <body style="background-color:black;">
+        <img id="movie" src="">
 
        	<script type="text/javascript">
        		var address = document.URL;
@@ -33,22 +41,14 @@
 					console.log("Refresh time " + refreshTime);
 
        		var video = document.getElementById("movie");
-       		var source = document.createElement("source");
 
-       		source.setAttribute('src', videoSource);
-       		video.appendChild(source);
-
-					video.play();
+       		video.setAttribute('src', videoSource);
 
 					setTimeout(function(){
 						location.reload();
 					}, refreshTime);
- 					//tiborudvari.com/hls-player?refresh=10000&src=http://www.streambox.fr/playlists/test_001/stream.m3u8
 
        	</script>
 
     </body>
 </html>
-
-
-
