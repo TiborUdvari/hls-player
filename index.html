@@ -8,7 +8,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
         <!--<link rel="stylesheet" href="css/main.css"> -->
     </head>
     <body>
@@ -21,11 +20,11 @@
 					var urlAdress = new URL(address);
 
 					var videoSource = urlAdress.searchParams.get("src");
-					console.log("Video source " + videoSource);
 					if (!videoSource) {
 						videoSource = "http://www.streambox.fr/playlists/test_001/stream.m3u8";
 					}
-					
+					console.log("Video source " + videoSource);
+
 					var refreshTime = urlAdress.searchParams.get("refresh");
 
 					if (!refreshTime) {
@@ -33,21 +32,19 @@
 					}
 					console.log("Refresh time " + refreshTime);
 
-       		var paramSource = "todo";
-       		var paramReloadTime = 5000;
-
        		var video = document.getElementById("movie");
        		var source = document.createElement("source");
 
        		source.setAttribute('src', videoSource);
        		video.appendChild(source);
+
 					video.play();
 
 					setTimeout(function(){
 						location.reload();
 					}, refreshTime);
- 
- 
+ 					//tiborudvari.com/hls-player?refresh=10000&src=http://www.streambox.fr/playlists/test_001/stream.m3u8
+
        	</script>
 
     </body>
