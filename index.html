@@ -24,16 +24,27 @@ html, body {
         <img id="movie" src="">
 
        	<script type="text/javascript">
-       		var address = document.URL;
-					var urlAdress = new URL(address);
 
-					var videoSource = urlAdress.searchParams.get("src");
+          function getQueryParams(qs) {
+            qs = qs.split('+').join(' ');
+            var params = {};
+            var tokens;
+            var re = /[?&]?([^=]+)=([^&]*)/g;
+            while (tokens = re.exec(qs)) {
+                params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+            }
+            return params;
+          }
+
+       		var params = getQueryParams(document.location.search);
+
+					var videoSource = params["src"];
 					if (!videoSource) {
 						videoSource = "http://www.streambox.fr/playlists/test_001/stream.m3u8";
 					}
 					console.log("Video source " + videoSource);
 
-					var refreshTime = urlAdress.searchParams.get("refresh");
+					var refreshTime = params["refresh"];
 
 					if (!refreshTime) {
 						refreshTime = 10000;
