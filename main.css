@@ -12,6 +12,10 @@ html, body {
 #movie {
   width: 100%;
   min-height: 200px;
+  position: absolute;
+  top: 0;
+  /*height: 100vh;*/
+  /*object-fit: cover;*/
   background: #444;
 }
 
